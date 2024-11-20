@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convertidor de Tasas</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="main-header">
+        <nav class="nav-container">
+            <div class="logo">
+                <h3>FinanceTools</h3>
+            </div>
+            <ul class="nav-links">
+                <li><a href="/" class="active">Convertidor</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h1>Convertidor de Tasas</h1>
+        
+        <div class="tabs">
+            <button class="tab-btn active" data-tab="nominal">Nominal a Efectiva</button>
+            <button class="tab-btn" data-tab="descuento">Descontada a Efectiva</button>
+            <button class="tab-btn" data-tab="efectivas">Entre Efectivas</button>
+        </div>
+
+        <!-- Tab Nominal a Efectiva -->
+        <div class="tab-content active" id="nominal-tab">
+            <div class="input-group">
+                <label for="tasa">Tasa Nominal (%):</label>
+                <input type="number" id="tasa" step="0.0001">
+            </div>
+            <div class="input-group">
+                <label for="dias-tasa">Días de la Tasa:</label>
+                <input type="number" id="dias-tasa">
+            </div>
+            <div class="input-group">
+                <label for="dias-cap">Días de Capitalización:</label>
+                <input type="number" id="dias-cap">
+            </div>
+            <button id="calcular-nominal">Calcular</button>
+            <div class="resultado">
+                <h2>Tasa Efectiva:</h2>
+                <p id="resultado-nominal">-</p>
+                <div class="procedimiento-card">
+                    <h3>Procedimiento:</h3>
+                    <pre id="procedimiento-nominal" class="procedimiento"></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab Descontada a Efectiva -->
+        <div class="tab-content" id="descuento-tab">
+            <div class="input-group">
+                <label for="tasa-desc">Tasa Descontada (%):</label>
+                <input type="number" id="tasa-desc" step="0.0001">
+            </div>
+            <div class="input-group">
+                <label for="dias-desc">Días de la Tasa:</label>
+                <input type="number" id="dias-desc">
+            </div>
+            <div class="input-group conversion-efectiva hidden">
+                <label for="dias-conversion-desc">Convertir resultado a efectiva de (días):</label>
+                <input type="number" id="dias-conversion-desc">
+            </div>
+            <button id="calcular-descuento">Calcular</button>
+            <div class="resultado">
+                <h2>Tasa Efectiva:</h2>
+                <p id="resultado-descuento">-</p>
+                <div class="procedimiento-card">
+                    <h3>Procedimiento:</h3>
+                    <pre id="procedimiento-descuento" class="procedimiento"></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab Entre Efectivas -->
+        <div class="tab-content" id="efectivas-tab">
+            <div class="input-group">
+                <label for="tasa-efectiva-origen">Tasa Efectiva Origen (%):</label>
+                <input type="number" id="tasa-efectiva-origen" step="0.0001">
+            </div>
+            <div class="input-group">
+                <label for="dias-efectiva-origen">Días de la Tasa Origen:</label>
+                <input type="number" id="dias-efectiva-origen">
+            </div>
+            <div class="input-group">
+                <label for="dias-efectiva-destino">Convertir a días:</label>
+                <input type="number" id="dias-efectiva-destino">
+            </div>
+            <button id="calcular-efectivas">Calcular</button>
+            <div class="resultado">
+                <h2>Tasa Efectiva Convertida:</h2>
+                <p id="resultado-efectivas">-</p>
+                <div class="procedimiento-card">
+                    <h3>Procedimiento:</h3>
+                    <pre id="procedimiento-efectivas" class="procedimiento"></pre>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="module" src="js/main.js"></script>
+</body>
+</html> 
